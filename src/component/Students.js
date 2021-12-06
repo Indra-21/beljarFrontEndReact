@@ -31,6 +31,18 @@ export default function Students() {
             console.log("New Student Add")
         })
     }
+    // const handleHapus=(e)=>{
+    //     e.preventDefault()
+    //     const studentHapus={Students}
+    //     console.log(studentHapus)
+    //     fetch("http://localhost:8081/student/delete/{id}",{
+    //         headers:{"Content-Type":"application/json"},
+    //         body:JSON.stringify(studentHapus)
+
+    //     }).then(()=>{
+    //         console.log("Berhasil di hapus")
+    //     })
+    // }
 
     useEffect(()=>{
         fetch("http://localhost:8081/student/getAll")
@@ -57,7 +69,7 @@ export default function Students() {
       <Button variant="contained" color="secondary" onClick={handleClick}>Submit</Button>
       </form>
       </Paper>
-      <hi>Student</hi>
+      <hi>List Data</hi>
 
       <Paper elevation={3} style={paperStyle}>
           {
@@ -65,7 +77,9 @@ export default function Students() {
                 <Paper elevation={6} style={{ margin:"10px", padding:"15px", textAlign:"left" }} key={students.id}>
                 Id:{students.id}<br/>
                 Nama:{students.nama}<br/>
-                alamat:{students.alamat}
+                alamat:{students.alamat}<br/>
+                <Button variant="text" color="primary"  >hapus</Button> &nbsp; 
+                <Button variant="text" color="primary" type="submit">edit</Button>
                 </Paper>
                 ))
           }
